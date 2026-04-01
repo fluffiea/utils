@@ -2,9 +2,9 @@ import { defineConfig } from 'tsdown'
 
 const config = {
   entry: 'src/index.ts',
-  sourcemap: true,
+  sourcemap: false,
   dts: {
-    sourcemap: true,
+    sourcemap: false,
   },
 }
 

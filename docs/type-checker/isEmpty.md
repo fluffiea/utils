@@ -1,6 +1,6 @@
-# isNotEmpty
+# isEmpty
 
-判断数据是否非空，以下数据会被判定为空，`isNotEmpty`会返回`false`
+判断数据是否非空，以下数据会被判定为空，`isEmpty`会返回`true`
 
 -   `null`
 -   `undefined`
@@ -13,15 +13,15 @@
 ## 引入
 
 ```ts
-import { isNotEmpty } from '@fluffiea/utils'
+import { isEmpty } from '@fluffiea/utils'
 ```
 
 ## 使用
 
 ```ts
-import { isNotEmpty } from '@fluffiea/utils'
+import { isEmpty } from '@fluffiea/utils'
 
-isNotEmpty(value)
+isEmpty(value)
 ```
 
 ## 参数
@@ -30,7 +30,7 @@ isNotEmpty(value)
 /**
  * @param value
  * @returns
- * @since 0.0.1
+ * @since 0.1.0
  */
 ```
 

@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { isNotEmpty } from '../../src'
+import { isNotEmpty, isEmpty } from '../../src'
 
 describe('isNotEmpty', () => {
   // 应返回 false 的场景（空值）
@@ -19,6 +19,14 @@ describe('isNotEmpty', () => {
 
     it('空对象', () => {
       expect(isNotEmpty({})).toBe(false)
+    })
+
+    it('空 Set', () => {
+      expect(isNotEmpty(new Set())).toBe(false)
+    })
+
+    it('空 Map', () => {
+      expect(isNotEmpty(new Map())).toBe(false)
     })
   })
 
@@ -46,6 +54,28 @@ describe('isNotEmpty', () => {
       expect(isNotEmpty({ key: undefined })).toBe(true)
       expect(isNotEmpty({ '': 'empty key' })).toBe(true)
       expect(isNotEmpty({ a: 1, b: 2 })).toBe(true)
+    })
+
+    it('非空 Set', () => {
+      expect(isNotEmpty(new Set([1]))).toBe(true)
+      expect(isNotEmpty(new Set([null]))).toBe(true)
+      expect(isNotEmpty(new Set(['']))).toBe(true)
+      expect(isNotEmpty(new Set([1, 2, 3]))).toBe(true)
+    })
+
+    it('非空 Map', () => {
+      const map1 = new Map()
+      map1.set('key', 'value')
+      expect(isNotEmpty(map1)).toBe(true)
+
+      const map2 = new Map()
+      map2.set('key', null)
+      expect(isNotEmpty(map2)).toBe(true)
+
+      const map3 = new Map()
+      map3.set(1, 'one')
+      map3.set(2, 'two')
+      expect(isNotEmpty(map3)).toBe(true)
     })
 
     it('数字', () => {
@@ -97,17 +127,29 @@ describe('isNotEmpty', () => {
       expect(isNotEmpty([{}])).toBe(true)
     })
 
+    it('包含空值的 Set 应该返回 true', () => {
+      expect(isNotEmpty(new Set([null]))).toBe(true)
+      expect(isNotEmpty(new Set([undefined]))).toBe(true)
+      expect(isNotEmpty(new Set(['']))).toBe(true)
+    })
+
+    it('包含空值的 Map 应该返回 true', () => {
+      const map1 = new Map()
+      map1.set('key', null)
+      expect(isNotEmpty(map1)).toBe(true)
+
+      const map2 = new Map()
+      map2.set('key', undefined)
+      expect(isNotEmpty(map2)).toBe(true)
+
+      const map3 = new Map()
+      map3.set('key', '')
+      expect(isNotEmpty(map3)).toBe(true)
+    })
+
     it('包含空键值的对象应该返回 true', () => {
       expect(isNotEmpty({ '': 'value' })).toBe(true)
       expect(isNotEmpty({ key: '' })).toBe(true)
-    })
-
-    it('数组长度为 0 应该返回 false', () => {
-      expect(isNotEmpty([])).toBe(false)
-    })
-
-    it('对象键数量为 0 应该返回 false', () => {
-      expect(isNotEmpty({})).toBe(false)
     })
 
     it('只有原型链属性的对象应该返回 false', () => {
@@ -123,6 +165,48 @@ describe('isNotEmpty', () => {
       })
       // Object.keys 只返回可枚举属性，所以长度为 0
       expect(isNotEmpty(obj)).toBe(false)
+    })
+
+    it('Set 和 Map 的长度判断', () => {
+      const set = new Set()
+      set.add(1)
+      set.delete(1)
+      expect(isNotEmpty(set)).toBe(false)
+
+      const map = new Map()
+      map.set('key', 'value')
+      map.delete('key')
+      expect(isNotEmpty(map)).toBe(false)
+    })
+  })
+
+  // 与 isEmpty 的对应关系测试
+  describe('relationship with isEmpty', () => {
+    it('isNotEmpty 应该与 isEmpty 完全相反', () => {
+      const testValues = [
+        null,
+        undefined,
+        '',
+        [],
+        {},
+        new Set(),
+        new Map(),
+        'hello',
+        [1],
+        { key: 'value' },
+        new Set([1]),
+        new Map().set('key', 'value'),
+        42,
+        true,
+        () => {}
+      ]
+
+      testValues.forEach(value => {
+        // 这里假设 isEmpty 也存在，如果不存在可以跳过
+        // 或者直接测试逻辑：isNotEmpty 应该返回与 isEmpty 相反的结果
+        const isEmptyResult = isEmpty(value)
+        expect(isNotEmpty(value)).toBe(!isEmptyResult)
+      })
     })
   })
 })

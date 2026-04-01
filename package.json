@@ -1,9 +1,11 @@
 {
   "name": "@fluffiea/utils",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "A collection of commonly used JavaScript methods.",
   "type": "module",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "packageManager": "pnpm@10.30.1",
   "exports": {
     ".": {
@@ -15,15 +17,23 @@
     "test": "vitest --ui",
     "build": "tsdown",
     "dev": "tsdown --watch",
-  
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
     "docs:preview": "vitepress preview docs",
-
     "prepublishOnly": "pnpm build"
   },
   "author": "fluffiea",
   "license": "MIT",
+  "keywords": [
+    "utils",
+    "js-utils",
+    "lightweight",
+    "type-check",
+    "debounce",
+    "throttle",
+    "date-utils",
+    "fluffiea"
+  ],
   "devDependencies": {
     "@vitest/ui": "^4.1.2",
     "tsdown": "^0.21.6",

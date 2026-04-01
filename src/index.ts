@@ -1,2 +1,2 @@
-export * from './constant'
 export * from './type-checker'
+export * from './tool'

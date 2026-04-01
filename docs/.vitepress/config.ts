@@ -27,21 +27,25 @@ export default defineConfig({
         ]
       },
       {
-        text: '常量值',
-        link: '/constant',
-        collapsed: false,
-        items: [
-          { text: '数据类型', link: '/constant/DataType' }
-        ]
-      },
-      {
         text: '类型检查',
         link: '/type-checker',
         collapsed: false,
         items: [
+          { text: 'getType', link: '/type-checker/getType' },
+          { text: 'isEmpty', link: '/type-checker/isEmpty' },
           { text: 'isNotEmpty', link: '/type-checker/isNotEmpty' },
           { text: 'isNumber', link: '/type-checker/isNumber' },
           { text: 'isString', link: '/type-checker/isString' }
+        ]
+      },
+      {
+        text: '工具函数',
+        link: '/tool',
+        collapsed: false,
+        items: [
+          { text: 'debounce', link: '/tool/debounce' },
+          { text: 'throttle', link: '/tool/throttle' },
+          { text: 'formatDate', link: '/tool/formatDate' },
         ]
       }
     ],

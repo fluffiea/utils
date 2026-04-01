@@ -18,7 +18,17 @@ isString(value)
 
 ## 参数
 
-| 属性名   | 类型      | 描述           |
-| -------- | --------- | -------------- |
-| `value`  | `unknown` | 需要判断的类型 |
-| `return` | `boolean` |                |
+```ts
+/**
+ * @param value
+ * @returns
+ * @since 0.0.1
+ */
+```
+
+
+
+| 属性名    | 类型      | 描述           |
+| --------- | --------- | -------------- |
+| `value`   | `unknown` | 需要判断的类型 |
+| `returns` | `boolean` |                |
