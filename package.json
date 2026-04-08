@@ -39,9 +39,7 @@
     "tsdown": "^0.21.6",
     "typescript": "^6.0.2",
     "vitepress": "2.0.0-alpha.17",
-    "vitest": "^4.1.2"
-  },
-  "dependencies": {
+    "vitest": "^4.1.2",
     "vitepress-plugin-tabs": "^0.8.0"
   }
 }

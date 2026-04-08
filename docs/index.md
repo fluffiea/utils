@@ -8,11 +8,11 @@ hero:
   tagline: 一个常用工具合集，缓慢更新中。。。
   actions:
     - theme: brand
-      text: 这是个什么东西？
-      link: /introduction
+      text: 这是个什么？
+      link: /notes/
     - theme: alt
-      text: 开始
-      link: /constant
+      text: 文档
+      link: /notes/type-checker/
 
 # features:
 #   - title: Feature A

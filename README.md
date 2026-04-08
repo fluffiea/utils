@@ -24,7 +24,7 @@ pnpm add @fluffiea/utils
 import { getType } from '@fluffiea/utils'
 
 const value = '0327'
-console.log(getType(value)) # out >> String
+console.log(getType(value)) // out >> String
 ```
 
 `CommonJS`
@@ -33,7 +33,7 @@ console.log(getType(value)) # out >> String
 const { getType } from '@fluffiea/utils'
 
 const value = '0327'
-console.log(getType(value)) # out >> String
+console.log(getType(value)) // out >> String
 ```
 
 ## Links
