@@ -6,7 +6,7 @@ import { getType } from "./getType"
  * @returns {boolean} 是否为数字类型
  * @since 0.0.1
  */
-export const isNumber = (value: unknown): boolean => {
+export const isNumber = (value: unknown): value is number => {
   // 快速判断
   if (typeof value === 'number') {
     return true

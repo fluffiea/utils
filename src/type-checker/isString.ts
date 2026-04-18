@@ -6,7 +6,7 @@ import { getType } from "./getType"
  * @returns {boolean} 是否为字符串类型
  * @since 0.0.1
  */
-export const isString = (value: unknown): boolean => {
+export const isString = (value: unknown): value is string => {
   // 快速判断
   if (typeof value === 'string') {
     return true
